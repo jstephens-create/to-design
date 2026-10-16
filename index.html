@@ -1,0 +1,391 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>TO DESIGN: Planetary Responsibility</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--navy:#0b1b2b;--deep:#13293f;--graphite:#2a3440;--blue:#2e6fa7;--mid:#1f4e79;--mist:#afc3d6;--paper:#eef3f7;--ink:#0b1b2b;--amber:#f08a3c;--muted:#8fb3d1;--rule:#2a4a68;color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--navy:#eef3f7;--deep:#ffffff;--paper:#0b1b2b;--ink:#ffffff;--muted:#3d5a70;--mist:#2a4a68;--rule:#c9d6e2;--amber:#a6400a;--blue:#2e6fa7;color-scheme:light}}
+:root[data-theme="dark"]{--navy:#0b1b2b;--deep:#13293f;--paper:#eef3f7;--ink:#0b1b2b;--muted:#8fb3d1;--mist:#afc3d6;--rule:#2a4a68;--amber:#f08a3c;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--navy);color:#e8f1f9;font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.label{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Oswald",Impact,"Arial Narrow",sans-serif;font-weight:700;text-transform:uppercase;line-height:1;margin:0;text-wrap:balance}
+h1{font-size:clamp(56px,13vw,172px)}
+h2{font-size:clamp(40px,7vw,96px)}
+h3{font-size:clamp(22px,2.6vw,32px)}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-block:40px}
+section{position:relative;padding-block:96px;border-bottom:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:48px}
+.serial{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);text-align:right}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:9;background:var(--amber);color:#0b1b2b;padding:8px 12px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+/* HERO */
+#hero{min-height:100vh;border-bottom:1px solid var(--rule);overflow:hidden;padding:0}
+#hero .stage{position:absolute;inset:0;z-index:0}
+#hero canvas{width:100%;height:100%;display:block}
+#hero .grid{position:absolute;inset:0;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:64px 64px;opacity:.35;pointer-events:none;z-index:0}
+#hero .copy{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding-block:40px 48px}
+#hero .statement{font-size:clamp(18px,2.2vw,24px);max-width:36ch;margin-top:20px;color:#e8f1f9}
+.meta{display:flex;flex-wrap:wrap;gap:12px 28px}
+#readout{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mist)}
+.fallback{display:none}
+.no-webgl .fallback{display:block}.no-webgl #hero .stage{display:none}
+/* GIFTS */
+.gifts{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.gift{background:var(--deep);border:1px solid var(--rule);padding:28px;display:flex;flex-direction:column;gap:18px}
+.gift:nth-child(1){grid-column:span 7}.gift:nth-child(2){grid-column:span 5}
+.gift:nth-child(3){grid-column:span 5}.gift:nth-child(4){grid-column:span 4}.gift:nth-child(5){grid-column:span 3}
+.gift svg{width:100%;height:auto;max-height:220px;display:block}
+.gift .num{color:var(--amber)}
+.gift p.analogy{color:var(--mist);font-style:italic}
+/* CAREERS */
+.careers{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px}
+.gift-list{display:flex;flex-direction:column;gap:10px}
+.gift-list button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--rule);padding:16px 18px;background:var(--deep);font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:22px}
+.gift-list button[aria-pressed="true"]{border-color:var(--amber);color:var(--amber)}
+.gift-list button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.branch{border:1px solid var(--rule);padding:32px;background:var(--deep);min-height:300px;display:flex;flex-direction:column;gap:20px}
+.branch .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.role{border:1px solid var(--blue);padding:22px;font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:clamp(20px,2.4vw,28px);line-height:1.1}
+.role small{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+.bridge{font-size:14px;color:var(--mist)}
+/* LAB */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tabs button{all:unset;cursor:pointer;border:1px solid var(--rule);padding:10px 16px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+.tabs button[aria-selected="true"]{background:var(--amber);color:#0b1b2b;border-color:var(--amber)}
+.tabs button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.action{border:1px solid var(--rule);background:var(--deep);padding:22px;display:flex;flex-direction:column;gap:12px}
+.action .idx{font-family:"Oswald",sans-serif;font-size:40px;color:var(--amber);line-height:1}
+.action p{font-size:17px;line-height:1.5}
+.action .bar{height:6px;background:var(--rule);position:relative}
+.action .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--blue);width:0;transition:width .9s ease}
+.action.on .bar i{width:var(--w)}
+/* CLOSING */
+#close{border-bottom:0;padding-bottom:120px}
+#assemble{width:100%;height:auto;max-height:360px;display:block;margin-bottom:40px}
+.chain{font-family:"JetBrains Mono",monospace;font-size:clamp(12px,1.6vw,16px);letter-spacing:.08em;color:var(--mist);margin-top:24px}
+.closing-line{font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:clamp(36px,6vw,80px);line-height:1;margin-top:32px;max-width:18ch}
+.commit{font-size:clamp(20px,2.4vw,28px);margin-top:24px;color:var(--amber)}
+footer{padding:32px 0 56px;color:var(--muted);font-size:13px}
+@media (max-width:820px){
+  .gift:nth-child(n){grid-column:1/-1}
+  .careers{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr}.serial{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#gifts">Skip to gifts</a>
+
+<section id="hero" aria-label="TO DESIGN introduction">
+  <div class="stage" aria-hidden="true"><canvas id="gl"></canvas></div>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="wrap copy">
+    <div class="meta">
+      <span class="mono">Drawing 001</span>
+      <span class="mono">Planetary responsibility</span>
+      <span class="mono">Design system / Rev A</span>
+      <span class="mono">Jordan Stephens · i.c.stars / C60</span>
+    </div>
+    <div>
+      <h1>To Design.</h1>
+      <p class="statement">Shape things, systems and experiences so people and the planet can flourish together.</p>
+    </div>
+    <div class="meta"><span id="readout">X 0000.00 · Y 0000.00 · OBJ 01 · TRI 0000</span></div>
+  </div>
+  <div class="fallback wrap" style="position:relative;z-index:1">
+    <p class="mono">Static view. WebGL is not available on this device.</p>
+  </div>
+</section>
+
+<section id="purpose" aria-labelledby="purpose-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="purpose-h">What I was put here to do</h2>
+      <span class="serial">SHEET 02</span>
+    </div>
+    <p style="font-size:clamp(20px,2.4vw,30px);max-width:44ch">To <span style="color:var(--amber)">design</span>: shape things, systems and experiences so people and the planet can flourish together.</p>
+    <p class="label" style="margin-top:32px">Guiding thesis: before something can be manufactured, programmed, communicated or experienced, it must first be imagined and designed.</p>
+  </div>
+</section>
+
+<section id="gifts" aria-labelledby="gifts-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="gifts-h">Five gifts</h2>
+      <span class="serial">MOVEMENT 02 · MODULES 01–05</span>
+    </div>
+    <div class="gifts">
+      <article class="gift">
+        <svg viewBox="0 0 400 220" role="img" aria-label="Two abstract human forms joined by a responsive field of dashed lines, representing empathy">
+          <rect width="400" height="220" fill="none"/>
+          <circle cx="120" cy="110" r="46" fill="none" stroke="#2e6fa7" stroke-width="3"/>
+          <circle cx="280" cy="110" r="46" fill="none" stroke="#f08a3c" stroke-width="3"/>
+          <path d="M166 110 Q200 60 234 110 Q200 160 166 110Z" fill="none" stroke="#afc3d6" stroke-width="2" stroke-dasharray="6 6"/>
+          <circle cx="120" cy="110" r="6" fill="#2e6fa7"/><circle cx="280" cy="110" r="6" fill="#f08a3c"/>
+        </svg>
+        <p class="label num">Gift 01</p>
+        <h3>Empathy</h3>
+        <p class="analogy">Like stepping into someone else’s shoes before you draw the map.</p>
+        <p>Understanding another person’s experience before proposing anything for them.</p>
+      </article>
+      <article class="gift">
+        <svg viewBox="0 0 400 220" role="img" aria-label="A low-poly object shown as a wireframe, a blueprint outline and a solid form in sequence, representing visual imagination">
+          <g fill="none" stroke="#afc3d6" stroke-width="2"><polygon points="60,160 110,60 160,160"/><line x1="60" y1="160" x2="110" y2="110"/><line x1="110" y1="60" x2="110" y2="110"/></g>
+          <polygon points="180,160 230,60 280,160" fill="none" stroke="#2e6fa7" stroke-width="3"/>
+          <polygon points="300,160 350,60 380,160" fill="#f08a3c"/><polygon points="300,160 340,110 380,160" fill="#a6400a"/>
+        </svg>
+        <p class="label num">Gift 02</p>
+        <h3>Visual Imagination</h3>
+        <p class="analogy">Like a sketchbook that holds the city before anyone has built it.</p>
+        <p>Turning an idea from wireframe to blueprint to solid form.</p>
+      </article>
+      <article class="gift">
+        <svg viewBox="0 0 400 220" role="img" aria-label="A network of connected nodes with dependency lines, representing systems thinking">
+          <g stroke="#afc3d6" stroke-width="2"><line x1="80" y1="60" x2="200" y2="110"/><line x1="200" y1="110" x2="320" y2="50"/><line x1="200" y1="110" x2="260" y2="180"/><line x1="80" y1="60" x2="120" y2="180"/><line x1="120" y1="180" x2="260" y2="180"/></g>
+          <circle cx="80" cy="60" r="12" fill="#2e6fa7"/><circle cx="200" cy="110" r="16" fill="#f08a3c"/><circle cx="320" cy="50" r="10" fill="#2e6fa7"/><circle cx="260" cy="180" r="12" fill="#2e6fa7"/><circle cx="120" cy="180" r="10" fill="#afc3d6"/>
+        </svg>
+        <p class="label num">Gift 03</p>
+        <h3>Systems Thinking</h3>
+        <p class="analogy">Like seeing the whole web while others only see one thread.</p>
+        <p>Seeing how each component changes the whole.</p>
+      </article>
+      <article class="gift">
+        <svg viewBox="0 0 400 220" role="img" aria-label="An exploded mechanical assembly of geometric parts separated along a centre line, representing craft">
+          <rect x="60" y="30" width="80" height="50" fill="#13293f" stroke="#2e6fa7" stroke-width="2"/>
+          <rect x="160" y="85" width="80" height="50" fill="#13293f" stroke="#f08a3c" stroke-width="2"/>
+          <rect x="260" y="140" width="80" height="50" fill="#13293f" stroke="#afc3d6" stroke-width="2"/>
+          <line x1="100" y1="80" x2="160" y2="110" stroke="#afc3d6" stroke-dasharray="4 4"/><line x1="200" y1="135" x2="260" y2="160" stroke="#afc3d6" stroke-dasharray="4 4"/>
+        </svg>
+        <p class="label num">Gift 04</p>
+        <h3>Craft</h3>
+        <p class="analogy">Like a watchmaker who knows the smallest gear sets the hour.</p>
+        <p>Precision, iteration and respect for detail.</p>
+      </article>
+      <article class="gift">
+        <svg viewBox="0 0 400 220" role="img" aria-label="Scattered marks resolving into an orderly row of signals, representing clear communication">
+          <g fill="#afc3d6"><circle cx="40" cy="40" r="5"/><circle cx="110" cy="170" r="5"/><circle cx="180" cy="60" r="5"/><circle cx="250" cy="150" r="5"/><circle cx="330" cy="50" r="5"/></g>
+          <g fill="#f08a3c"><rect x="40" y="105" width="30" height="10"/><rect x="90" y="105" width="30" height="10"/><rect x="140" y="105" width="30" height="10"/><rect x="190" y="105" width="30" height="10"/><rect x="240" y="105" width="30" height="10"/></g>
+        </svg>
+        <p class="label num">Gift 05</p>
+        <h3>Clear Communication</h3>
+        <p class="analogy">Like a lens: it adds no light, it brings the picture into focus.</p>
+        <p>Making complexity understandable to the person receiving it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="careers" aria-labelledby="careers-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="careers-h">Career possibilities</h2>
+      <span class="serial">MOVEMENT 03 · TEN ROLES</span>
+    </div>
+    <div class="careers">
+      <div class="gift-list" role="group" aria-label="Choose a gift">
+        <button aria-pressed="true" data-g="0">Empathy <span class="label">01</span></button>
+        <button aria-pressed="false" data-g="1">Visual Imagination <span class="label">02</span></button>
+        <button aria-pressed="false" data-g="2">Systems Thinking <span class="label">03</span></button>
+        <button aria-pressed="false" data-g="3">Craft <span class="label">04</span></button>
+        <button aria-pressed="false" data-g="4">Clear Communication <span class="label">05</span></button>
+      </div>
+      <div class="branch" aria-live="polite">
+        <p class="label" id="branch-gift">Gift 01 · Empathy</p>
+        <div class="roles" id="branch-roles"></div>
+        <p class="bridge" id="branch-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lab" aria-labelledby="lab-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="lab-h">Development lab</h2>
+      <span class="serial">MOVEMENT 04 · 25 ACTIONS</span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Gifts"></div>
+    <div class="actions" id="actions"></div>
+  </div>
+</section>
+
+<section id="close" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="close-h" style="font-size:clamp(28px,4vw,48px)">Human responsibility</h2>
+      <span class="serial">MOVEMENT 05</span>
+    </div>
+    <svg id="assemble" viewBox="0 0 400 240" role="img" aria-label="Five separate modules gather into one structure, symbolising how the five gifts combine into design">
+      <g id="mods"></g>
+    </svg>
+    <p class="chain">PURPOSE → GIFTS → POSSIBILITIES → DEVELOPMENT → ACTION</p>
+    <p class="closing-line">To design, so people and the planet can flourish.</p>
+    <p class="commit">One action this week. Not five. One.</p>
+  </div>
+</section>
+
+<footer class="wrap">Jordan Stephens · i.c.stars · C60 · TO DESIGN is a planetary responsibility assignment.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  /* ---------- content (from the assignment) ---------- */
+  const GIFTS = [
+    {name:'Empathy', roles:['UX Researcher','Service Designer'], actions:[
+      'Interview five people a month about a daily frustration, and write down their exact words.',
+      'Spend one hour a week using a product you did not design, and note every point of friction.',
+      'Practice reflective listening: summarize what someone said before you offer your own view.',
+      'Volunteer with people whose daily lives differ from yours, such as a community kitchen.',
+      'After every disagreement, write the other person’s strongest argument in one paragraph.']},
+    {name:'Visual Imagination', roles:['Industrial Designer','Art Director'], actions:[
+      'Sketch three rough ideas a day for ten minutes. Quantity first; quality follows practice.',
+      'Study one ordinary object a week, then redraw it from memory and compare the two.',
+      'Visit a gallery alone and write down the one piece that surprised you, and why.',
+      'Practice analogical thinking: pick two unrelated things, like a beehive and a city, and list what they share.',
+      'Build one physical prototype a month from cardboard, clay or paper before opening any software.']},
+    {name:'Systems Thinking', roles:['Sustainable Systems Designer','Urban Planner'], actions:[
+      'Map one everyday system, such as city waste pickup, with arrows that show cause and effect.',
+      'Read one systems book each quarter, starting with Donella Meadows’ Thinking in Systems.',
+      'When judging any proposal, ask “and then what?” three times to find the hidden effects.',
+      'Trace the life of one product you own: where its materials came from and where it ends up.',
+      'Attend a community planning meeting and name one hidden dependency others missed.']},
+    {name:'Craft', roles:['Product Designer','Packaging Designer'], actions:[
+      'Rebuild one finished piece of work to 100%, and note every flaw you find on the second pass.',
+      'Study one grid system, such as Swiss typography, and apply it to a document every week.',
+      'Spend ten minutes on the last 10% before any submission: proofread, align, test every link.',
+      'Keep a swipe file of well-made objects, with one sentence on why each one works.',
+      'Learn one tool deeply through a 30-day project, such as a full poster in Figma.']},
+    {name:'Clear Communication', roles:['Content Strategist','Instructional Designer'], actions:[
+      'Write one paragraph a day that explains a concept as you would to a curious twelve-year-old.',
+      'Give one short presentation a month to a small group, then ask for one specific point of feedback.',
+      'Cut every long email to half its length before you send it.',
+      'Teach a skill to a peer and watch where they get confused. Fix the explanation, not the peer.',
+      'Read your writing aloud before publishing, and rewrite any sentence you stumble over.']}
+  ];
+
+  /* ---------- careers ---------- */
+  const note = ['Empathy grounds every role that starts with people.',
+    'Imagination is where objects and cities begin.',
+    'Systems thinking is how a single change ripples outward.',
+    'Craft is where small decisions decide whether a thing lasts.',
+    'Communication carries the work to the people it is for.'];
+  function showGift(i){
+    document.querySelectorAll('.gift-list button').forEach((b,k)=>b.setAttribute('aria-pressed', String(k===i)));
+    document.getElementById('branch-gift').textContent = 'Gift 0'+(i+1)+' · '+GIFTS[i].name;
+    const roles = document.getElementById('branch-roles'); roles.innerHTML='';
+    GIFTS[i].roles.forEach((r,k)=>{ const d=document.createElement('div'); d.className='role';
+      d.innerHTML='<small>Role 0'+(k+1)+'</small>'+r; roles.appendChild(d); });
+    document.getElementById('branch-note').textContent = note[i];
+  }
+  document.querySelectorAll('.gift-list button').forEach(b=>b.addEventListener('click',()=>showGift(+b.dataset.g)));
+  showGift(0);
+
+  /* ---------- development lab ---------- */
+  const tabs = document.querySelector('.tabs'), list = document.getElementById('actions');
+  let cur = 0;
+  function renderLab(i){
+    cur = i;
+    tabs.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected', String(k===i)));
+    list.innerHTML='';
+    GIFTS[i].actions.forEach((a,k)=>{
+      const d=document.createElement('div'); d.className='action';
+      d.innerHTML='<span class="idx">'+(k+1)+'</span><p>'+a+'</p><div class="bar" aria-hidden="true"><i style="--w:'+(40+k*12)+'%"></i></div>';
+      list.appendChild(d);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>d.classList.add('on')));
+    });
+  }
+  GIFTS.forEach((g,i)=>{ const b=document.createElement('button'); b.setAttribute('role','tab');
+    b.textContent='0'+(i+1)+' '+g.name; b.addEventListener('click',()=>renderLab(i));
+    b.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ tabs.children[(i+1)%5].focus(); tabs.children[(i+1)%5].click(); }
+      if(e.key==='ArrowLeft'){ tabs.children[(i+4)%5].focus(); tabs.children[(i+4)%5].click(); } });
+    tabs.appendChild(b); });
+  renderLab(0);
+
+  /* ---------- closing assembly (static SVG, five modules) ---------- */
+  const COLS=['#2e6fa7','#f08a3c','#afc3d6','#1f4e79','#a6400a'];
+  const mods=document.getElementById('mods'), NS='http://www.w3.org/2000/svg';
+  const target=[[120,40],[200,40],[280,40],[160,120],[240,120]];
+  const start=[[30,180],[110,200],[200,200],[290,200],[370,180]];
+  target.forEach((t,i)=>{ const r=document.createElementNS(NS,'rect'); r.setAttribute('width',60); r.setAttribute('height',60);
+    r.setAttribute('fill',COLS[i]); r.setAttribute('x',start[i][0]-30); r.setAttribute('y',start[i][1]-30); r.dataset.tx=t[0]-30; r.dataset.ty=t[1]-30; mods.appendChild(r); });
+  function assemble(p){ mods.querySelectorAll('rect').forEach(r=>{ const sx=+r.getAttribute('x'); });
+    mods.querySelectorAll('rect').forEach((r,i)=>{ const sx=start[i][0]-30, sy=start[i][1]-30, tx=+r.dataset.tx, ty=+r.dataset.ty;
+      r.setAttribute('x', sx+(tx-sx)*p); r.setAttribute('y', sy+(ty-sy)*p); }); }
+  const closeEl=document.getElementById('close');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ assemble(1); io.disconnect(); } }),{threshold:0.5});
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  assemble(reduce?1:0); if(!reduce) io.observe(closeEl);
+
+  /* ---------- hero: low-poly sculpture (Three.js) ---------- */
+  const hero=document.getElementById('hero'), canvas=document.getElementById('gl');
+  let renderer=null;
+  try{
+    renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  }catch(e){ document.body.classList.add('no-webgl'); }
+  if(renderer){
+    const scene=new THREE.Scene();
+    const camera=new THREE.PerspectiveCamera(38,1,0.1,100); camera.position.set(0,0,7.5);
+    const dpr=Math.min(window.devicePixelRatio||1, reduce?1:1.75); renderer.setPixelRatio(dpr);
+    scene.add(new THREE.AmbientLight(0xffffff,0.45));
+    const key=new THREE.DirectionalLight(0xffffff,0.9); key.position.set(3,4,5); scene.add(key);
+    const amber=new THREE.Color('#f08a3c'), blue=new THREE.Color('#2e6fa7');
+    /* core: icosahedron with displaced vertices (low poly) */
+    const coreGeo=new THREE.IcosahedronGeometry(1.6,1);
+    const pos=coreGeo.attributes.position; const seed=[];
+    for(let i=0;i<pos.count;i++){ seed.push(Math.random()*6.28); }
+    const core=new THREE.Mesh(coreGeo,new THREE.MeshStandardMaterial({color:blue,flatShading:true,roughness:0.6,metalness:0.2}));
+    const wire=new THREE.LineSegments(new THREE.WireframeGeometry(coreGeo),new THREE.LineBasicMaterial({color:0xafc3d6,transparent:true,opacity:0.35}));
+    const group=new THREE.Group(); group.add(core,wire); scene.add(group);
+    /* orbiting instanced modules */
+    const boxGeo=new THREE.BoxGeometry(0.42,0.42,0.42), N=30;
+    const inst=new THREE.InstancedMesh(boxGeo,new THREE.MeshStandardMaterial({color:amber,flatShading:true,roughness:0.5}),N);
+    const dummy=new THREE.Object3D(); const orb=[];
+    for(let i=0;i<N;i++){ orb.push({r:2.6+(i%3)*0.5,s:0.15+(i%5)*0.05,a:i*0.7,y:(i%4-1.5)*0.7}); }
+    const slot=(i,t,mouse)=>{ const o=orb[i]; const a=o.a+t*o.s;
+      dummy.position.set(Math.cos(a)*o.r, o.y+Math.sin(t*0.6+i)*0.15, Math.sin(a)*o.r);
+      dummy.rotation.set(t*0.4+i,t*0.3,0); dummy.scale.setScalar(0.7+0.3*Math.sin(t+i)); dummy.updateMatrix(); inst.setMatrixAt(i,dummy.matrix); };
+    scene.add(inst);
+    /* grid floor lines (technical drawing) */
+    const floor=new THREE.GridHelper(12,24,0x2a4a68,0x1b3450); floor.position.y=-2.6; scene.add(floor);
+    let mx=0,my=0,tx=0,ty=0,t0=performance.now(),running=true,last=0;
+    hero.addEventListener('pointermove',e=>{ const r=hero.getBoundingClientRect(); mx=((e.clientX-r.left)/r.width)*2-1; my=((e.clientY-r.top)/r.height)*2-1; });
+    function size(){ const r=hero.getBoundingClientRect(); const w=r.width, h=r.height;
+      renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+    size(); addEventListener('resize',size);
+    const readout=document.getElementById('readout');
+    function frame(now){
+      if(!running) return;
+      const t=(now-t0)/1000;
+      tx+=(mx-tx)*0.05; ty+=(my-ty)*0.05;
+      group.rotation.y=t*0.18+tx*0.6; group.rotation.x=ty*0.35;
+      const pulse=1+0.04*Math.sin(t*1.6);
+      core.scale.setScalar(pulse); wire.scale.setScalar(pulse);
+      for(let i=0;i<N;i++) slot(i,reduce?0:t,{x:tx,y:ty});
+      inst.instanceMatrix.needsUpdate=true; inst.count=N;
+      renderer.render(scene,camera);
+      if(now-last>120){ last=now; readout.textContent='X '+(tx*100+500).toFixed(2)+' · Y '+(ty*100+500).toFixed(2)+' · OBJ 01 · TRI '+(coreGeo.index?coreGeo.index.count/3:0).toString().padStart(4,'0'); }
+      if(!reduce) requestAnimationFrame(frame); else { /* one still frame */ }
+    }
+    if(!reduce) requestAnimationFrame(frame); else frame(performance.now());
+    document.addEventListener('visibilitychange',()=>{ if(document.hidden){ running=false; } else if(!running){ running=true; t0+=0; requestAnimationFrame(frame); } });
+    addEventListener('resize',()=>{ if(reduce) frame(performance.now()); });
+    /* release GPU resources when the page is left */
+    addEventListener('pagehide',()=>{ running=false; coreGeo.dispose(); boxGeo.dispose(); renderer.dispose(); });
+  }
+})();
+</script>
+</body>
+</html>
+
+</body></html>
